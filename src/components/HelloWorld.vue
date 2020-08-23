@@ -1,7 +1,6 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <div>1113</div>
+  <div>111</div>
 </template>
 
 <script>
