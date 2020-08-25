@@ -1,6 +1,6 @@
 {
   "name": "hhwUI-vue3",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "sass": "^1.26.10",
     "vite": "^1.0.0-rc.1"
   }
 }

@@ -1,10 +1,10 @@
 <template>
-  <div>router1</div>
+  <div>button</div>
 </template>
 
 <script>
 export default {
-  name: "router1.vue"
+  name: "SwitchDeme.vue"
 }
 </script>
 
