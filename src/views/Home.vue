@@ -17,6 +17,7 @@
         <router-view/>
       </main>
     </div>
+    <div class="footer">© 王欢</div>
   </div>
 </template>
 <script lang="ts">
@@ -48,45 +49,40 @@ export default {
     @media (max-width: 500px) {
       padding-left: 0;
     }
-  }
-}
+    display: flex;
 
-.content {
-  display: flex;
+    > aside {
+      flex-shrink: 0;
+      width: 150px;
+      padding: 70px 16px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
 
-  > aside {
-    flex-shrink: 0;
-  }
+      > h2 {
+        margin-bottom: 4px;
+      }
 
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-    background: lightgreen;
-  }
-}
+      > ol {
+        > li {
+          padding: 4px 0;
+        }
+      }
+    }
 
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 70px;
-  height: 100%;
-
-  > h2 {
-    margin-bottom: 4px;
-  }
-
-  > ol {
-    > li {
-      padding: 4px 0;
+    > main {
+      flex-grow: 1;
+      padding: 16px;
+      border-left: 1px solid #ddd;
+      overflow: auto;
     }
   }
-}
 
-main {
-  overflow: auto;
+  > .footer {
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 16px;
+  }
 }
 </style>

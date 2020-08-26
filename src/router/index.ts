@@ -15,6 +15,7 @@ const router = createRouter({
     {
       path: "/", component: Home,
       children: [
+        {path: "", component: SwitchDemo},
         {path: "switch", component: SwitchDemo},
         {path: "button", component: ButtonDemo},
       ]
