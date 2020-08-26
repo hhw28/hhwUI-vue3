@@ -1,10 +1,17 @@
 <template>
-  <div>switch</div>
+  <Switch v-model:value="value"/>
 </template>
 
-<script>
+<script lang="ts">
+import Switch from "../lib/Switch.vue";
+import {ref} from 'vue'
+
 export default {
-  name: "SwitchDeme.vue"
+  components: {Switch},
+  setup() {
+    const value = ref(false)
+    return {value}
+  }
 }
 </script>
 
