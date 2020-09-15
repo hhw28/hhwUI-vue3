@@ -11,6 +11,9 @@
           <li>
             <router-link to="/button">Button 组件</router-link>
           </li>
+          <li>
+            <router-link to="/dialog">Dialog 组件</router-link>
+          </li>
         </ol>
       </aside>
       <main>

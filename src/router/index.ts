@@ -1,10 +1,8 @@
 import {createWebHashHistory, createRouter} from "vue-router";
-// @ts-ignore
 import Home from "../views/Home.vue";
-// @ts-ignore
 import SwitchDemo from "../components/SwitchDemo.vue";
-// @ts-ignore
 import ButtonDemo from "../components/ButtonDemo.vue";
+import DialogDemo from "../components/DialogDemo.vue";
 
 // 指定路由的模式,此处使用的是hash模式
 const history = createWebHashHistory()
@@ -18,6 +16,7 @@ const router = createRouter({
         {path: "", component: SwitchDemo},
         {path: "switch", component: SwitchDemo},
         {path: "button", component: ButtonDemo},
+        {path: "dialog", component: DialogDemo},
       ]
     }
   ],
