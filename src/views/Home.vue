@@ -1,94 +1,119 @@
 <template>
-  <div class="layout">
-    <Topnav class="nav"/>
-    <div class="content">
-      <aside v-if="menuVisible">
-        <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/tabs">Tabs 组件</router-link>
-          </li>
-        </ol>
-      </aside>
-      <main>
-        <router-view/>
-      </main>
+  <div>
+    <div class="topnavAndBanner">
+      <Topnav />
+      <div class="banner">
+        <h1>hhw UI</h1>
+        <h2>一个厉害的 UI 框架</h2>
+        <p class="actions">
+          <a href="https://github.com/hhw28/hhwUI-vue3">GitHub</a>
+          <router-link to="/doc">开始</router-link>
+        </p>
+      </div>
     </div>
-    <div class="footer">© 王欢</div>
+    <div class="features">
+      <ul>
+        <li>
+          <svg>
+            <use xlink:href="#icon-vue"></use>
+          </svg>
+          <h3>基于 Vue 3</h3>
+          <p>骄傲地使用了 Vue 3 Composition API</p>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="#icon-ts"></use>
+          </svg>
+          <h3>基于 TypeScript </h3>
+          <p>源代码采用 TypeScript 书写</p>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="#icon-light"></use>
+          </svg>
+          <h3>代码易读</h3>
+          <p>每个组件的源代码都极其简洁</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
+
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
-import {inject, Ref} from "vue";
-
 export default {
-  components: {Topnav},
-  setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
-    return {menuVisible};
+  components: {
+    Topnav
   },
 };
 </script>
+
 <style lang="scss" scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  > .nav {
-    flex-shrink: 0;
+$green: #02bcb0;
+$border-radius: 4px;
+$color: #007974;
+.topnavAndBanner {
+  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
+}
+.features {
+  margin: 64px auto;
+  width: 400px;
+  @media (min-width: 800px) {
+    width: 800px;
   }
-
-  > .content {
-    flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
-    @media (max-width: 500px) {
-      padding-left: 0;
-    }
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+  >ul {
     display: flex;
-
-    > aside {
-      flex-shrink: 0;
-      width: 150px;
-      padding: 70px 16px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-
-      > h2 {
-        margin-bottom: 4px;
+    flex-wrap: wrap;
+    >li {
+      width: 400px;
+      margin: 16px 0;
+      display: grid;
+      justify-content: start;
+      align-content: space-between;
+      grid-template-areas:
+        "icon title"
+        "icon text";
+      grid-template-columns: 80px auto;
+      grid-template-rows: 1fr auto;
+      >svg {
+        grid-area: icon;
+        width: 64px;
+        height: 64px;
       }
-
-      > ol {
-        > li {
-          padding: 4px 0;
-        }
+      >h3 {
+        grid-area: title;
+        font-size: 28px;
       }
-    }
-
-    > main {
-      flex-grow: 1;
-      padding: 16px;
-      border-left: 1px solid #ddd;
-      overflow: auto;
+      >p {
+        grid-area: text
+      }
     }
   }
-
-  > .footer {
-    border-top: 1px solid #ddd;
-    text-align: center;
-    padding: 16px;
+}
+.banner {
+  color: $color;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  >.actions {
+    padding: 8px 0;
+    a {
+      margin: 0 8px;
+      background: $green;
+      color: white;
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: $border-radius;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
 </style>
